@@ -35,17 +35,16 @@
         base: 'USD',
       },
       function(data) {
-
-        var from_rate = data.rates[from];
-        var to_rate = data.rates[to];
-
-        var converted_value = (value / from_rate) * to_rate;
-
+        var converted_value = converted_value(value, data.rates[from], data.rates[to]);
         var output = value + " " + from + " = " + converted_value.toFixed(0) + " " + to;
 
         return $('.js-media-list').html(output);
       }
     );
+  }
+
+  function convertValue(value, fromRate, toRate) {
+    return (value / from_rate) * to_rate;
   }
 
   $(document).ready(function () {
