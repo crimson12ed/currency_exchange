@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Currency Exchange</title>
+
+    <!-- CSS Files -->
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+  	<!-- Header -->
+		<header class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Currency Exchange</a>
+				</div>
+			</div>
+		</header>
+
+		<!-- Main -->
+		<main class="container">
+
+			<section class="search">
+				<form action="#">
+            I want to convert <input type="text" name="amount" id="amount" placeholder="1000"><input list="currency" name="currency_from" id="currency_from"> to <input list="currency" name="currency_to" id="currency_to">
+						<datalist id="currency"></datalist>
+						<button class="js-search-btn btn btn-primary">Search</button>
+				</form>
+			</section>
+
+			<section class="js-media-list"></section>
+		</main>
+
+		<!-- Javascript Files -->
+		<script src="js/jquery-3.1.1.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+		<script src="js/currencies.js"></script>
+   	<script src="js/app.js"></script>
+  </body>
+</html>
