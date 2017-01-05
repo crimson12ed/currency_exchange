@@ -15,20 +15,10 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-
-  	<!-- Header -->
-		<header class="navbar navbar-default navbar-static-top">
-			<div class="container">
-				<div class="navbar-header">
-					<a href="#" class="navbar-brand">Currency Exchange</a>
-				</div>
-			</div>
-		</header>
-
 		<!-- Main -->
 		<main class="container">
-
-			<section class="search">
+			<h1 class="heading js-animate-show-logo">Currency Exchange</h1>
+			<section class="search js-animate-show-content">
 				<form action="#">
             I want to convert <input type="text" name="amount" id="amount" placeholder="1000"><input list="currency" name="currency_from" id="currency_from"> to <input list="currency" name="currency_to" id="currency_to">
 						<datalist id="currency"></datalist>
@@ -36,7 +26,7 @@
 				</form>
 			</section>
 
-			<section class="js-media-list"></section>
+			<section class="result js-media-list"></section>
 		</main>
 
 		<!-- Javascript Files -->

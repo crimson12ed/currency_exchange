@@ -8,6 +8,10 @@ a {
   color: inherit;
 }
 
+main {
+  text-align: center;
+}
+
 input {
   background-color: inherit;
   border-top: 0;
@@ -17,18 +21,18 @@ input {
   text-align: center;
   margin-left: 15px;
   margin-right: 15px;
-  
+
 }
 
-.navbar-default {
-  background-color: #252830;
-  color: #FFFFFF;
-}
-
-.navbar-default .navbar-brand {
-  color: #FFFFFF;
+.heading {
+  margin-top: 4em;
+  margin-bottom: 2em;
 }
 
 .search {
   margin-bottom: 20px;
+}
+
+.result {
+  margin-top: 4em;
 }

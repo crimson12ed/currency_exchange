@@ -36,9 +36,11 @@
       },
       function(data) {
         var converted_value = convertValue(value, data.rates[from], data.rates[to]);
-        var output = value + " " + from + " = " + converted_value.toFixed(0) + " " + to;
+        var output = "<h2>" + value + " " + from + " = " + converted_value.toFixed(0) + " " + to + "</h2>";
 
-        return $('.js-media-list').html(output);
+        $('.js-media-list').html(output).hide();
+
+        $('.js-media-list').fadeIn({duration: 400, queue: false});
       }
     );
   }
@@ -48,9 +50,26 @@
   }
 
   $(document).ready(function () {
-    $('#currency').html(createDataList(currencies));
 
-    console.log(getCurrentDate());
+
+    // Animation
+    $('.js-animate-show-logo').hide();
+    $('.js-animate-show-content').hide();
+
+    $('.js-animate-show-logo').animate(
+      {'margin-top': '3em'},
+      {duration: 1000, queue: false});
+
+    $('.js-animate-show-logo').fadeIn({
+      duration: 1000,
+      queue: false,
+      complete: function () {
+        $('.js-animate-show-content').fadeIn(400);
+      }
+    });
+
+
+    $('#currency').html(createDataList(currencies));
 
     $('#currency_from').attr('placeholder', 'USD');
     $('#currency_to').attr('placeholder', 'AUD');
