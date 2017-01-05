@@ -19,10 +19,10 @@
 		<main class="container">
 			<h1 class="heading js-animate-show-logo">Currency Exchange</h1>
 			<section class="search js-animate-show-content">
-				<form action="#">
-            I want to convert <input type="text" name="amount" id="amount" placeholder="1000"><input list="currency" name="currency_from" id="currency_from"> to <input list="currency" name="currency_to" id="currency_to">
+				<form action="#" class="convert_form">
+            I want to convert <input type="text" name="amount" id="amount" placeholder="e.g. 1000" required><input list="currency" name="currency_from" id="currency_from" required> to <input list="currency" name="currency_to" id="currency_to" required>
 						<datalist id="currency"></datalist>
-						<button class="js-search-btn btn btn-primary">Search</button>
+						<button class="js-search-btn btn btn-primary" disabled="disabled">Search</button>
 				</form>
 			</section>
 

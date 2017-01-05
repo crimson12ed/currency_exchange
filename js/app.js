@@ -13,6 +13,23 @@
     return output;
   }
 
+  function validateForm(currencies, value, from, to) {
+    var error = "";
+    if (!(value && value == parseInt(value, 10))) {
+      error += "Invalid value. ";
+    }
+
+    if (!(from && currencies[from])) {
+      error += "Invalid currency to be converted from. ";
+    }
+
+    if (!(to && currencies[to])) {
+      error += "Invalid currency to be converted to. ";
+    }
+
+    return error;
+  }
+
   function getCurrentDate() {
     var today = new Date();
 
@@ -73,13 +90,38 @@
 
     $('#currency').html(createDataList(currencies));
 
-    $('#currency_from').attr('placeholder', 'USD');
-    $('#currency_to').attr('placeholder', 'AUD');
+    $('#currency_from').attr('placeholder', 'e.g. USD');
+    $('#currency_to').attr('placeholder', 'e.g. AUD');
 
+    // Disable submit button until all fields filled
+    $('form > input').keyup(function() {
+
+        var empty = false;
+        $('form > input').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('.js-search-btn').attr('disabled', 'disabled');
+        } else {
+            $('.js-search-btn').removeAttr('disabled');
+        }
+    });
 
     $('.js-search-btn').click(function (event) {
       event.preventDefault();
-      getCurrencyExhange($("#amount").val(), $('#currency_from').val(), $('#currency_to').val());
+      var errormsg = validateForm(currencies, $("#amount").val(), $('#currency_from').val(), $('#currency_to').val());
+
+      if (!errormsg) {
+        getCurrencyExhange($("#amount").val(), $('#currency_from').val(), $('#currency_to').val());
+
+      } else {
+        $('.js-media-list').css("color", "red").html(errormsg).fadeOut(3000, function() {
+          $('.js-media-list').css("color", "#FFF"); 
+        });
+      }
     });
 
   });
