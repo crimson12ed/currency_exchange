@@ -30,23 +30,9 @@
     return error;
   }
 
-  function getCurrentDate() {
-    var today = new Date();
-
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-
-    if (mm < 10) mm = "0" + mm;
-    if (dd < 10) dd = "0" + dd;
-
-    return [yyyy, mm, dd].join('-');
-  }
-
   function getCurrencyExhange(value, from, to) {
-    var date = getCurrentDate();
 
-    $.get('https://openexchangerates.org/api/historical/' + date + '.json',
+    $.get('https://openexchangerates.org/api/latest.json',
       {
         app_id: '22d9598f35804071b18669436390b5d6',
         base: 'USD',
@@ -118,8 +104,8 @@
         getCurrencyExhange($("#amount").val(), $('#currency_from').val(), $('#currency_to').val());
 
       } else {
-        $('.js-media-list').css("color", "red").html(errormsg).fadeOut(3000, function() {
-          $('.js-media-list').css("color", "#FFF"); 
+        $('.js-media-list').css("color", "red").html(errormsg).fadeOut(5000, function() {
+          $('.js-media-list').css("color", "#FFF");
         });
       }
     });
