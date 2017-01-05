@@ -35,7 +35,7 @@
         base: 'USD',
       },
       function(data) {
-        var converted_value = converted_value(value, data.rates[from], data.rates[to]);
+        var converted_value = convertValue(value, data.rates[from], data.rates[to]);
         var output = value + " " + from + " = " + converted_value.toFixed(0) + " " + to;
 
         return $('.js-media-list').html(output);
@@ -44,7 +44,7 @@
   }
 
   function convertValue(value, fromRate, toRate) {
-    return (value / from_rate) * to_rate;
+    return (value / fromRate) * toRate;
   }
 
   $(document).ready(function () {
