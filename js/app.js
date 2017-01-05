@@ -36,7 +36,7 @@
       },
       function(data) {
         var converted_value = convertValue(value, data.rates[from], data.rates[to]);
-        var output = "<h2>" + value + " " + from + " = " + converted_value.toFixed(0) + " " + to + "</h2>";
+        var output = "<h2>" + parseInt(value).toFixed(4) + " " + from + " = " + converted_value.toFixed(4) + " " + to + "</h2>";
 
         $('.js-media-list').html(output).hide();
 
@@ -46,6 +46,8 @@
   }
 
   function convertValue(value, fromRate, toRate) {
+    console.log(fromRate);
+    console.log(toRate);
     return (value / fromRate) * toRate;
   }
 
