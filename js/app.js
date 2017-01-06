@@ -58,9 +58,6 @@
 
 
     // Animation
-    $('.js-animate-show-logo').hide();
-    $('.js-animate-show-content').hide();
-
     $('.js-animate-show-logo').animate(
       {'margin-top': '3em'},
       {duration: 1000, queue: false});
